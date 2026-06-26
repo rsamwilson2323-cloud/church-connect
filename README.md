@@ -92,6 +92,7 @@ church-connect/
 
 ---
 
+
 ## ▶️ Running the Application
 
 ### Option 1 – Using the BAT file (Windows)

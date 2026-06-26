@@ -1,44 +1,64 @@
-````markdown
-# 🌌 BlackHole
+# ⚡ DataBridge — IP-Based Data Transfer & Chat
 
-An immersive **interactive Black Hole Simulation** built with **HTML5 Canvas, CSS, and JavaScript**. Control a dynamic black hole using your mouse or touch, watch hundreds of particles spiral into its event horizon, customize its size and gravitational pull, and enjoy smooth real-time physics with stunning visual effects.
+> **Connect any device. Share anything. No limits.**
+> Real-time chat and file transfer (0 KB → 50 GB) over IP — works across different networks using ngrok. No Bluetooth, no USB, no same-WiFi requirement. Just an IP and a name.
 
 ---
 
 ## ✨ Features
 
-- 🌌 Interactive black hole controlled by mouse or touch
-- 🌀 Realistic particle attraction and orbital physics
-- ⚫ Adjustable black hole size
-- 💥 Adjustable gravitational pull strength
-- 🌠 Dynamic glowing accretion disk effects
-- ✨ Smooth particle trails and animations
-- 📱 Touch support for mobile devices
-- 🖥️ Fullscreen immersive experience
-- ⏸️ Pause and Resume using **ESC**
-- 🚀 One-click launch using **RUN_BLACKHOLE.bat**
+🌐 **IP-Based Connection**
+- Connect devices from **different cities, different networks**
+- Works via LAN (same network) or **internet via ngrok**
+- No pairing, no Bluetooth, no USB — just share the URL
 
----
+💬 **Real-Time Chat**
+- Instant messaging between up to **5 users**
+- Join/Leave notifications with **timestamp**
+- **Edit** and **Delete** your own messages
+- **Private messages** — visible only to selected users 🔒
+- Typing indicator
 
-## 🛠️ Technologies Used
+📁 **File Transfer (0 KB → 50 GB)**
+- Send **any file type** — videos, photos, APKs, ZIPs, documents
+- Select **multiple files** in a single click
+- Real-time **progress bar** (1%... 23%... 89%... 100%)
+- Files appear as **clickable links** — opens in new tab to stream or download
+- Send to **specific users** or **everyone** at once
+- Up to **5 simultaneous senders and receivers**
 
-- **HTML5**
-- **CSS3**
-- **JavaScript (ES6)**
-- **HTML5 Canvas API**
+🎨 **Stickers**
+- 15 built-in emoji stickers
+- Send to everyone or privately
+
+👥 **User Management**
+- Max **5 users** per session
+- Live user chips shown at top
+- Capacity dots on login page
 
 ---
 
 ## 📂 Project Structure
 
-```text
-BlackHole
-│
-├── blackhole.html
-├── RUN_BLACKHOLE.bat
-├── README.md
-└── LICENSE
 ```
+IP-Based-Data-Transfer-Chat/
+│
+├── [FOLDER] ngrok-v3-stable-windows-amd64/
+│   ├── ngrok-v3-stable-windows-amd64.zip   ← ngrok installer zip (Windows)
+│   └── ngrok.exe                           ← ngrok executable (Windows)
+│
+├── [FOLDER] node_modules/          ← Auto-installed dependencies
+├── [FILE]   package-lock.json      ← Dependency lock file
+├── [FILE]   package.json           ← Project config & scripts
+├── [FOLDER] public/                ← Frontend pages
+│   ├── index.html                  ← Login page (shows IP, name entry)
+│   └── chat.html                   ← Chat + file transfer UI
+├── [FILE]   run.bat                ← One-click launcher (Windows)
+├── [FILE]   server.js              ← Main backend (Express + Socket.IO)
+└── [FOLDER] uploads/               ← Auto-created; stores transferred files
+```
+
+> The `uploads/` folder and all required directories are **auto-created** when the server starts.
 
 ---
 
@@ -47,75 +67,155 @@ BlackHole
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/rsamwilson2323-cloud/BlackHole.git
+git clone https://github.com/rsamwilson2323-cloud/IP-Based-Data-Transfer-Chat.git
+cd IP-Based-Data-Transfer-Chat
 ```
 
-### 2️⃣ Navigate to the Project Folder
+### 2️⃣ Install Dependencies
 
 ```bash
-cd BlackHole
+npm install
+```
+
+### 3️⃣ Start the Server
+
+```bash
+node server.js
+```
+
+**Windows users** — just double-click `run.bat` ✅
+
+---
+
+## 📦 Requirements
+
+```
+Node.js       v16 or above
+express       ^4.18.2
+socket.io     ^4.7.2
+multer        ^1.4.5-lts.1
+@ngrok/ngrok  ^1.4.0
+```
+
+Install all at once:
+```bash
+npm install
 ```
 
 ---
 
-## ▶️ Running the Simulation
+## 🌐 ngrok — Public Internet Access
 
-### Option 1 – Open Directly
+The `ngrok-v3-stable-windows-amd64` folder contains everything needed for internet access across different networks.
 
-Open the following file in your browser:
+| File | Purpose |
+|---|---|
+| `ngrok-v3-stable-windows-amd64.zip` | Full ngrok v3 installer package for Windows |
+| `ngrok.exe` | Ready-to-use ngrok executable (no install needed) |
 
-```text
-blackhole.html
+> **ngrok is auto-started by the server** — no manual terminal command needed.
+> The public URL is printed automatically in the terminal on startup:
+
+```
+┌──────────────────────────────────────────────────┐
+│  🌍 PUBLIC URL — Share with ANYONE, ANYWHERE!     │
+│                                                  │
+│  👉  https://abc123.ngrok-free.app               │
+│                                                  │
+│  ✅ This URL works even from other cities!        │
+└──────────────────────────────────────────────────┘
 ```
 
-### Option 2 – Windows Launcher
+Share this link with anyone — they can join from **Anywhere in the world.**
 
-Double-click:
+---
 
-```text
-RUN_BLACKHOLE.bat
+## ▶️ Usage
+
+### Local Network (Same WiFi)
+
+1. Run `node server.js` or double-click `run.bat`
+2. Terminal prints your **LAN IP**, e.g. `http://192.168.1.5:4000`
+3. Share that URL with anyone on the same network
+4. They open it in any browser → enter a name → done ✅
+
+### Internet Access (Different Networks / Cities)
+
+The server auto-starts **ngrok** on launch and prints a public URL — share it with anyone in the world instantly.
+
+---
+
+## 🖥️ How It Works
+
+```
+Device A                  Server (Node.js)               Device B
+   │                           │                             │
+   │──── join(name) ──────────▶│                             │
+   │                           │◀──── join(name) ────────────│
+   │                           │                             │
+   │──── send file ───────────▶│ (multer saves to uploads/)  │
+   │◀─── progress % ───────────│────── file link ───────────▶│
+   │                           │                             │
+   │──── private msg ─────────▶│──── only to target ────────▶│
+   │                           │   (others never receive it) │
 ```
 
----
-
-## 🎮 Controls
-
-| Action | Function |
-|---------|----------|
-| 🖱️ Move Mouse | Control the Black Hole |
-| 📱 Touch & Drag | Move Black Hole on Mobile |
-| 🎚️ Size Slider | Change Event Horizon Size |
-| ⚡ Pull Slider | Adjust Gravitational Force |
-| ⌨️ ESC | Pause / Resume Simulation |
+**Socket.IO** handles all real-time events.
+**Multer** streams large files directly to disk — no memory limit.
+**ngrok** creates a secure public tunnel for cross-network access.
 
 ---
 
-## 🌟 Highlights
+## 🧠 Key Technical Details
 
-- 700+ animated particles
-- Beautiful glowing accretion disk
-- Real-time gravity simulation
-- Dynamic particle orbiting
-- Smooth animation loop
-- Lightweight and fast
-- No external libraries required
-
----
-
-## 💡 Applications
-
-- Space visualization
-- Physics demonstrations
-- Creative coding
-- Canvas animation learning
-- JavaScript graphics projects
-- Interactive web experiments
+| Feature | Implementation |
+|---|---|
+| Real-time messaging | Socket.IO WebSocket |
+| File upload | Multer (disk storage, 50 GB limit) |
+| File delivery | Static file server → link in chat |
+| Progress tracking | XHR `upload.progress` event |
+| Private messages | Socket-ID targeted delivery only |
+| Public tunnel | ngrok `@ngrok/ngrok` SDK (auto-start) |
+| Max users | Server-enforced at 5 |
 
 ---
 
-## 📄 License
+## 🔒 Private Messaging
 
-This project is licensed under the **MIT License**.
+When you send a private message or file:
+- Only the **selected recipient(s)** receive it
+- The **sender** sees it with a 🔒 badge
+- **No other user** can see it — not even in chat history
+- Private messages are **never stored** in the server history
+
+---
+
+## ⚠️ Important Notes
+
+- Files are accessible **while the server is running**
+- When the server stops, file links become inactive (by design — no permanent storage)
+- Supports **phones, laptops, tablets** — any modern browser
+- All data transfers happen **through your server** as the bridge
+
+---
+
+## 🚀 Future Improvements
+
+🔊 Sound alerts for new messages
+📊 Transfer speed display (MB/s)
+🗂️ File history / download log
+🔐 Room password protection
+📱 PWA / mobile app version
+🧠 AI-based content moderation
+📡 Peer-to-peer WebRTC mode
+
+---
+
+## ⚠️ Disclaimer
+
+This project is intended for **educational and personal use only**.
+It is not intended to replace enterprise-grade file transfer solutions.
+The developer is not responsible for misuse of the application.
 
 ---
 
@@ -123,11 +223,19 @@ This project is licensed under the **MIT License**.
 
 **Sam Wilson**
 
-🐙 GitHub: https://github.com/rsamwilson2323-cloud
-
-💼 LinkedIn: https://www.linkedin.com/in/sam-wilson-14b554385
+🌐 GitHub — [rsamwilson2323-cloud](https://github.com/rsamwilson2323-cloud)
+💼 LinkedIn — [sam-wilson-14b554385](https://www.linkedin.com/in/sam-wilson-14b554385)
 
 ---
 
-⭐ **If you enjoyed this project, don't forget to Star ⭐ the repository!**
-````
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+<div align="center">
+  <b>⚡ DataBridge — Because distance shouldn't limit data.</b>
+</div>
+
+in this patton'

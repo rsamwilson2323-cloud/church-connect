@@ -1,221 +1,159 @@
-# ⚡ DataBridge — IP-Based Data Transfer & Chat
+# ⛪ Church Connect
 
-> **Connect any device. Share anything. No limits.**
-> Real-time chat and file transfer (0 KB → 50 GB) over IP — works across different networks using ngrok. No Bluetooth, no USB, no same-WiFi requirement. Just an IP and a name.
+A lightweight church management system for tracking **members, attendance, and offerings** organized by Class and Section. Built with **Node.js and Express** — runs locally on your network with no internet required.
 
 ---
 
-## ✨ Features
+## 🚀 Features
 
-🌐 **IP-Based Connection**
-- Connect devices from **different cities, different networks**
-- Works via LAN (same network) or **internet via ngrok**
-- No pairing, no Bluetooth, no USB — just share the URL
+* 👥 Member management organized by Class and Section
+* 📅 Attendance tracking with date-wise records
+* 💰 Offerings recording per member
+* 📊 Dashboard with charts and filters
+* 🌙 Dark / Light mode support
+* 🖥️ Easy server startup using `run.bat`
+* 📱 Accessible from phones and tablets on the same WiFi
 
-💬 **Real-Time Chat**
-- Instant messaging between up to **5 users**
-- Join/Leave notifications with **timestamp**
-- **Edit** and **Delete** your own messages
-- **Private messages** — visible only to selected users 🔒
-- Typing indicator
+---
 
-📁 **File Transfer (0 KB → 50 GB)**
-- Send **any file type** — videos, photos, APKs, ZIPs, documents
-- Select **multiple files** in a single click
-- Real-time **progress bar** (1%... 23%... 89%... 100%)
-- Files appear as **clickable links** — opens in new tab to stream or download
-- Send to **specific users** or **everyone** at once
-- Up to **5 simultaneous senders and receivers**
+## 🛠️ Technologies Used
 
-🎨 **Stickers**
-- 15 built-in emoji stickers
-- Send to everyone or privately
-
-👥 **User Management**
-- Max **5 users** per session
-- Live user chips shown at top
-- Capacity dots on login page
+* **Node.js**
+* **Express.js**
+* **React**
+* **Passport.js** (local authentication)
+* **Recharts** (dashboard charts)
+* **Tailwind CSS**
 
 ---
 
 ## 📂 Project Structure
 
-```
-IP-Based-Data-Transfer-Chat/
+church-connect/
 │
-├── [FOLDER] ngrok-v3-stable-windows-amd64/
-│   ├── ngrok-v3-stable-windows-amd64.zip   ← ngrok installer zip (Windows)
-│   └── ngrok.exe                           ← ngrok executable (Windows)
+├── client/
+│   └── src/
+│       ├── pages/
+│       │   ├── Login.tsx
+│       │   ├── Dashboard.tsx
+│       │   ├── Members.tsx
+│       │   ├── Classes.tsx
+│       │   ├── Attendance.tsx
+│       │   ├── Reports.tsx
+│       │   ├── Settings.tsx
+│       │   └── not-found.tsx
+│       ├── hooks/
+│       │   ├── use-auth.ts
+│       │   ├── use-attendance.ts
+│       │   ├── use-classes.ts
+│       │   ├── use-members.ts
+│       │   ├── use-reports.ts
+│       │   ├── use-theme.ts
+│       │   └── use-toast.ts
+│       ├── lib/
+│       │   ├── queryClient.ts
+│       │   ├── auth-utils.ts
+│       │   └── utils.ts
+│       ├── App.tsx
+│       ├── main.tsx
+│       └── index.css
 │
-├── [FOLDER] node_modules/          ← Auto-installed dependencies
-├── [FILE]   package-lock.json      ← Dependency lock file
-├── [FILE]   package.json           ← Project config & scripts
-├── [FOLDER] public/                ← Frontend pages
-│   ├── index.html                  ← Login page (shows IP, name entry)
-│   └── chat.html                   ← Chat + file transfer UI
-├── [FILE]   run.bat                ← One-click launcher (Windows)
-├── [FILE]   server.js              ← Main backend (Express + Socket.IO)
-└── [FOLDER] uploads/               ← Auto-created; stores transferred files
-```
-
-> The `uploads/` folder and all required directories are **auto-created** when the server starts.
-
----
-
-## ⚙️ Installation
-
-### 1️⃣ Clone the Repository
-
-```bash
-git clone https://github.com/rsamwilson2323-cloud/IP-Based-Data-Transfer-Chat.git
-cd IP-Based-Data-Transfer-Chat
-```
-
-### 2️⃣ Install Dependencies
-
-```bash
-npm install
-```
-
-### 3️⃣ Start the Server
-
-```bash
-node server.js
-```
-
-**Windows users** — just double-click `run.bat` ✅
+├── server/
+│   ├── index.ts
+│   ├── auth.ts
+│   ├── routes.ts
+│   ├── fileStorage.ts
+│   ├── storage.ts
+│   ├── static.ts
+│   └── vite.ts
+│
+├── shared/
+│   ├── schema.ts
+│   └── routes.ts
+│
+├── data/
+│   ├── users.json
+│   └── users/
+│       └── sam_2323/
+│           └── db.json
+│
+├── dist/
+│   ├── index.cjs
+│   └── public/
+│
+├── package.json
+├── tsconfig.json
+├── tailwind.config.ts
+├── vite.config.ts
+├── drizzle.config.ts
+├── components.json
+├── run.bat
+└── README.md
 
 ---
 
-## 📦 Requirements
+## ▶️ Running the Application
 
-```
-Node.js       v16 or above
-express       ^4.18.2
-socket.io     ^4.7.2
-multer        ^1.4.5-lts.1
-@ngrok/ngrok  ^1.4.0
-```
+### Option 1 – Using the BAT file (Windows)
 
-Install all at once:
-```bash
-npm install
-```
+Double click:
 
----
+run.bat
 
-## 🌐 ngrok — Public Internet Access
+### Option 2 – Using Command Line
 
-The `ngrok-v3-stable-windows-amd64` folder contains everything needed for internet access across different networks.
+set NODE_ENV=production
+set PORT=5000
+set SESSION_SECRET=church2024
+node dist\index.cjs
 
-| File | Purpose |
-|---|---|
-| `ngrok-v3-stable-windows-amd64.zip` | Full ngrok v3 installer package for Windows |
-| `ngrok.exe` | Ready-to-use ngrok executable (no install needed) |
-
-> **ngrok is auto-started by the server** — no manual terminal command needed.
-> The public URL is printed automatically in the terminal on startup:
-
-```
-┌──────────────────────────────────────────────────┐
-│  🌍 PUBLIC URL — Share with ANYONE, ANYWHERE!     │
-│                                                  │
-│  👉  https://abc123.ngrok-free.app               │
-│                                                  │
-│  ✅ This URL works even from other cities!        │
-└──────────────────────────────────────────────────┘
-```
-
-Share this link with anyone — they can join from **Anywhere in the world.**
+> **Note:** Node.js must be installed. Download from https://nodejs.org
 
 ---
 
-## ▶️ Usage
+## 🔐 Demo Login
 
-### Local Network (Same WiFi)
+| Username | Password |
+|----------|----------|
+| sam_2323 | sam@2323 |
 
-1. Run `node server.js` or double-click `run.bat`
-2. Terminal prints your **LAN IP**, e.g. `http://192.168.1.5:4000`
-3. Share that URL with anyone on the same network
-4. They open it in any browser → enter a name → done ✅
-
-### Internet Access (Different Networks / Cities)
-
-The server auto-starts **ngrok** on launch and prints a public URL — share it with anyone in the world instantly.
+The demo account comes with pre-loaded example data including 3 classes, 4 sections, 11 members, and attendance records.
 
 ---
 
-## 🖥️ How It Works
+## 📱 Accessing from Your Phone
 
-```
-Device A                  Server (Node.js)               Device B
-   │                           │                             │
-   │──── join(name) ──────────▶│                             │
-   │                           │◀──── join(name) ────────────│
-   │                           │                             │
-   │──── send file ───────────▶│ (multer saves to uploads/)  │
-   │◀─── progress % ───────────│────── file link ───────────▶│
-   │                           │                             │
-   │──── private msg ─────────▶│──── only to target ────────▶│
-   │                           │   (others never receive it) │
-```
+1. Connect your **phone and laptop to the same WiFi network or hotspot**
 
-**Socket.IO** handles all real-time events.
-**Multer** streams large files directly to disk — no memory limit.
-**ngrok** creates a secure public tunnel for cross-network access.
+2. Find your laptop IP address:
 
----
+ipconfig
 
-## 🧠 Key Technical Details
+Look for **IPv4 Address**
 
-| Feature | Implementation |
-|---|---|
-| Real-time messaging | Socket.IO WebSocket |
-| File upload | Multer (disk storage, 50 GB limit) |
-| File delivery | Static file server → link in chat |
-| Progress tracking | XHR `upload.progress` event |
-| Private messages | Socket-ID targeted delivery only |
-| Public tunnel | ngrok `@ngrok/ngrok` SDK (auto-start) |
-| Max users | Server-enforced at 5 |
+Example: 192.168.43.120
+
+3. Open your phone browser and enter:
+
+http://192.168.43.120:5000
+
+Now you can access Church Connect from any device on the network.
 
 ---
 
-## 🔒 Private Messaging
+## 📸 Example Use Cases
 
-When you send a private message or file:
-- Only the **selected recipient(s)** receive it
-- The **sender** sees it with a 🔒 badge
-- **No other user** can see it — not even in chat history
-- Private messages are **never stored** in the server history
-
----
-
-## ⚠️ Important Notes
-
-- Files are accessible **while the server is running**
-- When the server stops, file links become inactive (by design — no permanent storage)
-- Supports **phones, laptops, tablets** — any modern browser
-- All data transfers happen **through your server** as the bridge
+* Sunday service attendance tracking
+* Weekly class member management
+* Offering collection records
+* Section-wise reporting
+* Multi-device access over local WiFi
 
 ---
 
-## 🚀 Future Improvements
+## 📄 License
 
-🔊 Sound alerts for new messages
-📊 Transfer speed display (MB/s)
-🗂️ File history / download log
-🔐 Room password protection
-📱 PWA / mobile app version
-🧠 AI-based content moderation
-📡 Peer-to-peer WebRTC mode
-
----
-
-## ⚠️ Disclaimer
-
-This project is intended for **educational and personal use only**.
-It is not intended to replace enterprise-grade file transfer solutions.
-The developer is not responsible for misuse of the application.
+This project is licensed under the **MIT License**.
 
 ---
 
@@ -223,19 +161,9 @@ The developer is not responsible for misuse of the application.
 
 **Sam Wilson**
 
-🌐 GitHub — [rsamwilson2323-cloud](https://github.com/rsamwilson2323-cloud)
-💼 LinkedIn — [sam-wilson-14b554385](https://www.linkedin.com/in/sam-wilson-14b554385)
+🔗 GitHub: https://github.com/rsamwilson2323-cloud
+💼 LinkedIn: https://www.linkedin.com/in/sam-wilson-14b554385
 
 ---
 
-## 📜 License
-
-This project is licensed under the **MIT License**.
-
----
-
-<div align="center">
-  <b>⚡ DataBridge — Because distance shouldn't limit data.</b>
-</div>
-
-in this patton'
+⭐ If you found this project useful, consider giving it a **star** on GitHub!

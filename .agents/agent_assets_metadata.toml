@@ -1,0 +1,20 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "ow-IoiTBDVg2Kx0544odk"
+uri = "file://church-management.zip"
+type = "unspecified"
+title = "Church Management System (with start.bat)"
+
+[[outputs]]
+id = "u6E241IJNua5CguA87CzK"
+uri = "file://church-connect.zip"
+type = "unspecified"
+title = "Church Connect — Full Project (one bat only)"
+
+[[outputs]]
+id = "G5TFB_7b1su2-AziHan7u"
+uri = "file://run-bat.zip"
+type = "unspecified"
+title = "run.bat — FINAL FIXED"

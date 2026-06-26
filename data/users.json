@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "sam_2323",
+      "password": "$2b$10$H0FvyhYeApukQgnu/padZO6EtY0DSN0v.V/8ZvrNzUeEkVSXy7aOq"
+    }
+  ],
+  "counter": 1
+}

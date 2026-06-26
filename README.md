@@ -29,69 +29,72 @@ A lightweight church management system for tracking **members, attendance, and o
 
 ## 📂 Project Structure
 
+```text
 church-connect/
+├── 📁 client/
+│   └── 📁 src/
+│       ├── 📁 pages/
+│       │   ├── 📄 Login.tsx
+│       │   ├── 📄 Dashboard.tsx
+│       │   ├── 📄 Members.tsx
+│       │   ├── 📄 Classes.tsx
+│       │   ├── 📄 Attendance.tsx
+│       │   ├── 📄 Reports.tsx
+│       │   ├── 📄 Settings.tsx
+│       │   └── 📄 not-found.tsx
+│       │
+│       ├── 📁 hooks/
+│       │   ├── 📄 use-auth.ts
+│       │   ├── 📄 use-attendance.ts
+│       │   ├── 📄 use-classes.ts
+│       │   ├── 📄 use-members.ts
+│       │   ├── 📄 use-reports.ts
+│       │   ├── 📄 use-theme.ts
+│       │   └── 📄 use-toast.ts
+│       │
+│       ├── 📁 lib/
+│       │   ├── 📄 queryClient.ts
+│       │   ├── 📄 auth-utils.ts
+│       │   └── 📄 utils.ts
+│       │
+│       ├── 📄 App.tsx
+│       ├── 📄 main.tsx
+│       └── 📄 index.css
 │
-├── client/
-│   └── src/
-│       ├── pages/
-│       │   ├── Login.tsx
-│       │   ├── Dashboard.tsx
-│       │   ├── Members.tsx
-│       │   ├── Classes.tsx
-│       │   ├── Attendance.tsx
-│       │   ├── Reports.tsx
-│       │   ├── Settings.tsx
-│       │   └── not-found.tsx
-│       ├── hooks/
-│       │   ├── use-auth.ts
-│       │   ├── use-attendance.ts
-│       │   ├── use-classes.ts
-│       │   ├── use-members.ts
-│       │   ├── use-reports.ts
-│       │   ├── use-theme.ts
-│       │   └── use-toast.ts
-│       ├── lib/
-│       │   ├── queryClient.ts
-│       │   ├── auth-utils.ts
-│       │   └── utils.ts
-│       ├── App.tsx
-│       ├── main.tsx
-│       └── index.css
+├── 📁 server/
+│   ├── 📄 index.ts
+│   ├── 📄 auth.ts
+│   ├── 📄 routes.ts
+│   ├── 📄 fileStorage.ts
+│   ├── 📄 storage.ts
+│   ├── 📄 static.ts
+│   └── 📄 vite.ts
 │
-├── server/
-│   ├── index.ts
-│   ├── auth.ts
-│   ├── routes.ts
-│   ├── fileStorage.ts
-│   ├── storage.ts
-│   ├── static.ts
-│   └── vite.ts
+├── 📁 shared/
+│   ├── 📄 schema.ts
+│   └── 📄 routes.ts
 │
-├── shared/
-│   ├── schema.ts
-│   └── routes.ts
+├── 📁 data/
+│   ├── 📄 users.json
+│   └── 📁 users/
+│       └── 📁 sam_2323/
+│           └── 📄 db.json
 │
-├── data/
-│   ├── users.json
-│   └── users/
-│       └── sam_2323/
-│           └── db.json
+├── 📁 dist/
+│   ├── 📄 index.cjs
+│   └── 📁 public/
 │
-├── dist/
-│   ├── index.cjs
-│   └── public/
-│
-├── package.json
-├── tsconfig.json
-├── tailwind.config.ts
-├── vite.config.ts
-├── drizzle.config.ts
-├── components.json
-├── run.bat
-└── README.md
+├── 📄 package.json
+├── 📄 tsconfig.json
+├── 📄 tailwind.config.ts
+├── 📄 vite.config.ts
+├── 📄 drizzle.config.ts
+├── 📄 components.json
+├── 📄 run.bat
+└── 📄 README.md
+```
 
 ---
-
 
 ## ▶️ Running the Application
 

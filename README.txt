@@ -1,279 +1,133 @@
-# ⛪ Church Connect — Smart Church Management System
+````markdown
+# 🌌 BlackHole
 
-> **Manage members. Track attendance. Record offerings.**
-> A lightweight Church Management System built with **Node.js, Express, React, and Tailwind CSS**. Works completely offline on your local network with secure authentication and a modern dashboard.
-
----
-
-# ✨ Features
-
-👥 **Member Management**
-
-* Organize members by **Class** and **Section**
-* Add, edit, delete, and search members
-* Easy profile management
-
-📅 **Attendance Tracking**
-
-* Record attendance date-wise
-* View attendance history
-* Filter by class and section
-* Quick attendance reports
-
-💰 **Offering Management**
-
-* Record member offerings
-* View contribution history
-* Easy financial tracking
-
-📊 **Dashboard**
-
-* Interactive charts
-* Attendance statistics
-* Member summaries
-* Quick filters
-
-🌙 **Modern Interface**
-
-* Dark & Light Theme
-* Responsive UI
-* Mobile Friendly
-* Clean Dashboard Design
-
-🌐 **Local Network Access**
-
-* Access from laptops, phones and tablets
-* No internet required
-* Runs completely on your own network
+An immersive **interactive Black Hole Simulation** built with **HTML5 Canvas, CSS, and JavaScript**. Control a dynamic black hole using your mouse or touch, watch hundreds of particles spiral into its event horizon, customize its size and gravitational pull, and enjoy smooth real-time physics with stunning visual effects.
 
 ---
 
-# 📂 Project Structure
+## ✨ Features
+
+- 🌌 Interactive black hole controlled by mouse or touch
+- 🌀 Realistic particle attraction and orbital physics
+- ⚫ Adjustable black hole size
+- 💥 Adjustable gravitational pull strength
+- 🌠 Dynamic glowing accretion disk effects
+- ✨ Smooth particle trails and animations
+- 📱 Touch support for mobile devices
+- 🖥️ Fullscreen immersive experience
+- ⏸️ Pause and Resume using **ESC**
+- 🚀 One-click launch using **RUN_BLACKHOLE.bat**
+
+---
+
+## 🛠️ Technologies Used
+
+- **HTML5**
+- **CSS3**
+- **JavaScript (ES6)**
+- **HTML5 Canvas API**
+
+---
+
+## 📂 Project Structure
 
 ```text
-church-connect/
+BlackHole
 │
-├── dist/
-│   ├── index.cjs
-│   └── public/
-│
-├── data/
-│   ├── users.json
-│   └── users/
-│       └── sam_2323/
-│           └── db.json
-│
-├── run.bat
-└── README.md
+├── blackhole.html
+├── RUN_BLACKHOLE.bat
+├── README.md
+└── LICENSE
 ```
-
-The database is stored locally in JSON format, making the application lightweight and easy to deploy.
 
 ---
 
-# ⚙️ Installation
+## ⚙️ Installation
 
-### 1️⃣ Clone Repository
+### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/rsamwilson2323-cloud/church-connect.git
-
-cd church-connect
+git clone https://github.com/rsamwilson2323-cloud/BlackHole.git
 ```
 
-### 2️⃣ Install Dependencies
+### 2️⃣ Navigate to the Project Folder
 
 ```bash
-npm install
+cd BlackHole
 ```
 
-### 3️⃣ Start the Server
+---
 
-Windows users can simply double-click
+## ▶️ Running the Simulation
+
+### Option 1 – Open Directly
+
+Open the following file in your browser:
 
 ```text
-run.bat
+blackhole.html
 ```
 
-or run manually
+### Option 2 – Windows Launcher
 
-```bash
-set NODE_ENV=production
-set PORT=5000
-set SESSION_SECRET=church2024
-
-node dist\index.cjs
-```
-
----
-
-# 📦 Technologies Used
-
-| Technology   | Purpose             |
-| ------------ | ------------------- |
-| Node.js      | Runtime Environment |
-| Express.js   | Backend Framework   |
-| React        | Frontend UI         |
-| Passport.js  | User Authentication |
-| Tailwind CSS | Responsive Styling  |
-| Recharts     | Dashboard Analytics |
-
----
-
-# 🔐 Demo Login
-
-| Username | Password |
-| -------- | -------- |
-| sam_2323 | sam@2323 |
-
-The demo account includes
-
-* ✅ 3 Classes
-* ✅ 4 Sections
-* ✅ 11 Members
-* ✅ Attendance Records
-* ✅ Offering Records
-* ✅ Dashboard Analytics
-
----
-
-# 📱 Access From Your Phone
-
-### Same WiFi Network
-
-1. Connect your laptop and phone to the same WiFi or hotspot.
-
-2. Find your laptop IP
-
-```bash
-ipconfig
-```
-
-Example
+Double-click:
 
 ```text
-IPv4 Address : 192.168.43.120
+RUN_BLACKHOLE.bat
 ```
 
-3. Open
+---
 
-```text
-http://192.168.43.120:5000
-```
+## 🎮 Controls
 
-Now Church Connect is available on any device connected to the same network.
+| Action | Function |
+|---------|----------|
+| 🖱️ Move Mouse | Control the Black Hole |
+| 📱 Touch & Drag | Move Black Hole on Mobile |
+| 🎚️ Size Slider | Change Event Horizon Size |
+| ⚡ Pull Slider | Adjust Gravitational Force |
+| ⌨️ ESC | Pause / Resume Simulation |
 
 ---
 
-# 🖥️ How It Works
+## 🌟 Highlights
 
-```text
-Member
-    │
-    ▼
-Church Connect Server
-(Node.js + Express)
-    │
-    ├──────── Attendance
-    │
-    ├──────── Members
-    │
-    ├──────── Offerings
-    │
-    └──────── Dashboard
-            │
-            ▼
-     Phone • Laptop • Tablet
-```
-
-React provides the user interface while Express handles all server operations. Data is securely stored in local JSON files for fast offline access.
+- 700+ animated particles
+- Beautiful glowing accretion disk
+- Real-time gravity simulation
+- Dynamic particle orbiting
+- Smooth animation loop
+- Lightweight and fast
+- No external libraries required
 
 ---
 
-# 🧠 Key Technical Details
+## 💡 Applications
 
-| Feature           | Implementation             |
-| ----------------- | -------------------------- |
-| Authentication    | Passport.js Local Strategy |
-| Database          | JSON Storage               |
-| Dashboard         | Recharts                   |
-| UI                | React + Tailwind CSS       |
-| Backend           | Express.js                 |
-| Responsive Design | Mobile & Desktop           |
-| Theme             | Dark / Light Mode          |
-| Network           | Local LAN Access           |
+- Space visualization
+- Physics demonstrations
+- Creative coding
+- Canvas animation learning
+- JavaScript graphics projects
+- Interactive web experiments
 
 ---
 
-# 📸 Example Use Cases
-
-* ⛪ Sunday Service Attendance
-* 👥 Church Member Directory
-* 💰 Weekly Offering Records
-* 📊 Attendance Reports
-* 📋 Section-wise Management
-* 📱 Multi-device Access
-
----
-
-# ⚠️ Important Notes
-
-* No internet connection is required.
-* Works entirely on your local network.
-* Data remains stored locally.
-* Accessible from phones, tablets, and computers.
-* Lightweight and easy to deploy.
-
----
-
-# 🚀 Future Improvements
-
-📧 Email Notifications
-
-📄 PDF Report Generation
-
-☁ Cloud Backup
-
-📱 Android & iOS App
-
-🔔 Event & Meeting Reminders
-
-👨‍👩‍👧 Family Management
-
-📊 Advanced Analytics
-
-🗓️ Event Calendar
-
----
-
-# ⚠️ Disclaimer
-
-This project is developed for **church administration, educational purposes, and small to medium congregations**. It is intended to simplify member management, attendance tracking, and offering records while operating entirely within a local network.
-
----
-
-# 👨‍💻 Author
-
-**Sam Wilson**
-
-🌐 GitHub — https://github.com/rsamwilson2323-cloud
-
-💼 LinkedIn — https://www.linkedin.com/in/sam-wilson-14b554385
-
----
-
-# 📜 License
+## 📄 License
 
 This project is licensed under the **MIT License**.
 
 ---
 
-<div align="center">
+## 👨‍💻 Author
 
-## ⭐ If you found this project helpful, don't forget to leave a Star!
+**Sam Wilson**
 
-### ⛪ Church Connect — Bringing Church Administration into the Digital Age.
+🐙 GitHub: https://github.com/rsamwilson2323-cloud
 
-Made with ❤️ by **Sam Wilson**
+💼 LinkedIn: https://www.linkedin.com/in/sam-wilson-14b554385
 
-</div>
+---
+
+⭐ **If you enjoyed this project, don't forget to Star ⭐ the repository!**
+````
